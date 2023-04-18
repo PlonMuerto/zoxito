@@ -1,0 +1,47 @@
+@use '@styles/containers/header';
+body{
+    padding: 10px;
+    background-color: var(--back);
+    position: relative;    
+    max-width: 1600px;
+    margin: auto;
+}
+main{
+    width: 100%;
+    min-height: calc(100vh - 50px);
+    height: 100%;
+    z-index: 1;
+    box-sizing: border-box;
+}
+.Layout{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Layout .glitchSystem{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    z-index: -1;
+}
+
+.Layout .glitchSystem img{
+    min-width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 0;
+    opacity: .5;
+    visibility: hidden;
+    margin: 0;
+    animation:glitch-screan 5s linear infinite;
+}
