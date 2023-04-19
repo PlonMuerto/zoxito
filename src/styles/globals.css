@@ -97,8 +97,8 @@ table {
 	border-spacing: 0;
 }
 :root{
-    --back:#1f0303;
-    --background-color:#ffe5ec;
+    --back:#fcfcfc;
+    --background-color:#010102;
     
     --primary:#fa4cce;
     --secundary:#F9A1E7;

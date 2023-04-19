@@ -8,7 +8,7 @@ export default function Layout({ children, locale }){
 			{children}
 			<figure className="glitchSystem">
 				
-				<img src={"https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjg3ZjM1YTlhNDM0MTU3NjAyMjFlOTVjY2E2OGVkYzZkZTI1NzViNSZjdD1n/IPFz7kGsj5tqU/giphy.gif"} alt="COCODRILOOOOOOOOO" />
+				<img src={"https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTRhYWQ0ZWU3NWU4NWEyZTkyNTcyZjllODBhMDc5YjJjZjhhNTAxNiZjdD1n/DS42gDdzDnScE/giphy.gif"} alt="COCODRILOOOOOOOOO" />
 			</figure>
 		</div>
 	);

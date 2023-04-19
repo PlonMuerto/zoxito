@@ -1,19 +1,18 @@
-
-
 /*header*/
-#header{
+#header {
     width: 100%;
     height: 50px;
     display: flex;
-    background-color: var(--primary);
+    //background-color: var(--primary);
     justify-content: space-between;
-    align-items: center;
+    align-items: start;
     position: relative;
+    border-bottom: 1px solid #eee;
 }
 
 /*boton menu para celular*/
-#header .toggleMenu{
-    width:40px;
+#header .toggleMenu {
+    width: 40px;
     align-self: flex-start;
     height: 40px;
     position: fixed;
@@ -28,67 +27,72 @@
 }
 
 
-#header .toggleMenu.actived .lineToggle:nth-child(1){
-    background-image: linear-gradient(45deg,var(--glitch-2), var(--primary));
+#header .toggleMenu.actived .lineToggle:nth-child(1) {
+    background-image: linear-gradient(45deg, var(--glitch-2), var(--primary));
 }
 
-#header .toggleMenu.actived .lineToggle:nth-child(2){
-    background-image: linear-gradient(45deg,var(--glitch-3), var(--primary))
+#header .toggleMenu.actived .lineToggle:nth-child(2) {
+    background-image: linear-gradient(45deg, var(--glitch-3), var(--primary))
 }
 
-#header .toggleMenu.actived .lineToggle:nth-child(3){
-    background-image: linear-gradient(45deg,var(--glitch-1),var(--primary))
+#header .toggleMenu.actived .lineToggle:nth-child(3) {
+    background-image: linear-gradient(45deg, var(--glitch-1), var(--primary))
 }
 
-#header .toggleMenu:hover{
+#header .toggleMenu:hover {
     cursor: pointer;
 }
 
-#header .toggleMenu div{
+#header .toggleMenu div {
     box-sizing: border-box;
     width: 100%;
-    transition:  background .3s ease;
+    transition: background .3s ease;
     height: 17%;
     border-radius: 1px;
     background-color: var(--secundary);
 }
+
 /*logo*/
 #header figure {
+    margin-left: 50px;
     max-width: 50px;
     max-height: 80px;
 }
-#header figure :hover{
+
+#header figure :hover {
     cursor: pointer;
 }
-#header figure img{
+
+#header figure img {
     max-width: 100%;
     max-height: 100%;
 }
 
 /*navegador para desktop*/
-#header .navbar-desktop{
+#header .navbar-desktop {
     display: flex;
     justify-content: flex-start;
 }
 
 
-#header .navbar-desktop .link{
+#header .navbar-desktop .link {
     padding: 3px 8px;
     font-family: "holstein";
     font-size: 18px;
     transition: color .2s ease;
-    color: var(--glitch-1);
-    text-shadow: 0px 0px 2px var(--glitch-1);
+    color: #222;
+    text-shadow: .5px .5px 1px var(--glitch-4);
 }
 
-#header .navbar-desktop .link:hover{
+#header .navbar-desktop .link:hover {
     cursor: pointer;
-    background: linear-gradient( 90deg, var(--glitch-1)  20%,var(--glitch-2) 40%,var(--glitch-3) 60%,var(--glitch-4) 80%,var(--glitch-5) 100%);
+    background: linear-gradient(90deg, var(--glitch-1) 20%, var(--glitch-2) 40%, var(--glitch-3) 60%, var(--glitch-4) 80%, var(--glitch-5) 100%);
     -webkit-background-clip: text;
-    color: transparent;  
+    color: transparent;
 }
+
 /*control de usuario*/
-#header .userControl{
+#header .userControl {
     position: absolute;
     bottom: -20px;
     display: flex;
@@ -96,21 +100,23 @@
     right: 0;
     align-self: flex-end;
 }
+
 /*boton para abrir shopping*/
-#header .userControl .shoppingcart{
+#header .userControl .shoppingcart {
     padding: 3px 10px;
     font-weight: 900;
     transition: color .2s ease;
-    font-size:12px;
+    font-size: 12px;
     color: rgb(167, 167, 167);
 }
+
 #header .userControl .shoppingcart:hover,
-#header .userControl .shoppingcart.actived{
+#header .userControl .shoppingcart.actived {
     color: var(--primary);
     cursor: pointer;
 }
 
-#header .userControl .link{
+#header .userControl .link {
     padding: 3px 8px;
     font-family: monospace;
     font-weight: 900;
@@ -120,12 +126,13 @@
 }
 
 #header .userControl .link:hover,
-#header .userControl .link.actived{
+#header .userControl .link.actived {
     cursor: pointer;
     color: var(--primary);
 }
+
 /*menu celular*/
-#header .menuNavbar{
+#header .menuNavbar {
     display: flex;
     box-sizing: border-box;
     flex-wrap: wrap;
@@ -142,17 +149,18 @@
     width: 100%;
     max-width: 100%;
     background-color: var(--background-color);
-    animation: openNavbar .3s linear ;
+    animation: openNavbar .3s linear;
 }
-#header .menuNavbar.close{
+
+#header .menuNavbar.close {
     display: none;
 }
 
-#header .menuNavbar.closeAnimation{
-    animation: closeNavbar .3s linear ;
+#header .menuNavbar.closeAnimation {
+    animation: closeNavbar .3s linear;
 }
 
-#header .menuNavbar .glitchScream{
+#header .menuNavbar .glitchScream {
     position: absolute;
     top: 0;
     left: 0;
@@ -164,36 +172,66 @@
     z-index: -1;
 }
 
-#header .menuNavbar .glitchScream img{
+#header .menuNavbar .glitchScream img {
     min-width: 100vw;
     min-height: 100vh;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     visibility: hidden;
-    animation:glitch-screan 10s linear infinite;
+    animation: glitch-screan 10s linear infinite;
 }
 
-#header .menuNavbar h6{
+#header .menuNavbar h6 {
     width: 100%;
     text-align: center;
     box-sizing: border-box;
     margin: 10px 0 20px;
+    position: relative;
     padding-left: 5px;
-    font-family: "Taigatru";
-    color: var(--primary);
-    text-shadow: -1px 2px 8px var(--secundary),1px -2px 8px var(--glitch-5);
-    animation: textMenuGlitch 10s ease infinite alternate-reverse;
-    font-size: 32px;
+    font-family: "Alagard";
+    color: var(--back);
+    text-shadow: 0 1.5px var(--glitch-3);
+    //animation: textMenuGlitch 10s ease infinite alternate-reverse;
+    font-size: 40px;
 }
-#header .menuNavbar .link{
+
+#header .menuNavbar h6::before,
+#header .menuNavbar h6::after {
+    content: attr(title);
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#header .menuNavbar h6::before {
+    left: .5px;
+    top: -0.5px;
+    text-shadow: 1px 1px var(--glitch-2);
+    color: var(--glitch-1);
+    animation:glitchSubtitelMenuAfter 3s linear infinite alternate-reverse;
+}
+
+#header .menuNavbar h6::after {
+    left: -0.5px;
+    top: .5px;
+    animation: glitchSubtitelMenuBefore 2s linear infinite alternate-reverse;
+    text-shadow: 1px 1px var(--glitch-4);
+    color: var(--glitch-5);
+}
+
+#header .menuNavbar .link {
     width: 8%;
     min-width: 100px;
     max-width: 180px;
     border-radius: 5px;
     display: grid;
     place-items: center;
-    padding:  3px 0;
+    padding: 3px 0;
     margin: 10px 5%;
     text-align: center;
     box-sizing: border-box;
@@ -203,13 +241,13 @@
     transition: all .3s ease;
 }
 
-#header .menuNavbar .link:hover{
+#header .menuNavbar .link:hover {
     cursor: pointer;
     background-color: white;
 }
 
-#header .menuNavbar hr{
-    
+#header .menuNavbar hr {
+
     box-sizing: border-box;
     width: 100%;
     height: 3px;
@@ -217,15 +255,16 @@
     border: 1px solid #ff8bbc;
     margin-bottom: 0px;
 }
+
 /*menu usuario*/
-#header .userControl{
+#header .userControl {
     box-sizing: border-box;
     display: flex;
     align-items: flex-end;
     background-color: white;
     font-family: 'BuggedBit';
     position: absolute;
-    bottom:-23px;
+    bottom: -23px;
     z-index: 2;
     border-radius: 3px;
     font-size: 14px;
@@ -233,26 +272,28 @@
     right: 3px;
 }
 
-#header .userControls .link{
+#header .userControls .link {
     font-weight: 100;
     margin: 2px 0;
 }
-#header .userControls .link:last-child{
-}
-#header .userControls .link:hover{
+
+#header .userControls .link:last-child {}
+
+#header .userControls .link:hover {
     cursor: pointer;
     color: #222;
 }
 
-#header .userControls.close{
+#header .userControls.close {
     display: none;
 }
+
 /*menu de la comprar guardadas en el carrito*/
-#header .shoping_cart{
+#header .shoping_cart {
     width: 320px;
     max-width: 100%;
     position: absolute;
-    padding-top:35px;
+    padding-top: 35px;
     padding-bottom: 10px;
     top: 30px;
     align-items: center;
@@ -266,27 +307,30 @@
     overflow-y: auto;
     box-sizing: border-box;
 }
+
 #header .shoping_cart::-webkit-scrollbar {
     -webkit-appearance: none;
 }
+
 #header .shoping_cart::-webkit-scrollbar:vertical {
-    width:6px;
+    width: 6px;
 }
+
 #header .shoping_cart::-webkit-scrollbar-thumb {
     background-color: #ff8bbc;
     border-radius: 20px;
 }
 
 #header .shoping_cart::-webkit-scrollbar-track {
-    border-radius: 10px;  
+    border-radius: 10px;
 }
 
 
-#header .shoping_cart.close{
+#header .shoping_cart.close {
     display: none;
 }
 
-#header .shoping_cart .product_shop{
+#header .shoping_cart .product_shop {
     width: 90%;
     border-radius: 3px;
     max-height: 150px;
@@ -295,10 +339,10 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
-    background-color:  var(--background-color);
+    background-color: var(--background-color);
 }
 
-#header .shoping_cart .product_shop .information{
+#header .shoping_cart .product_shop .information {
     padding: 5px;
     width: 60%;
     height: 100%;
@@ -309,45 +353,48 @@
     align-self: flex-start;
 }
 
-#header .shoping_cart .product_shop .information h4{
+#header .shoping_cart .product_shop .information h4 {
     margin: 4px 0 5px;
     font-family: "secundary";
 }
-#header .shoping_cart .product_shop .information p{
+
+#header .shoping_cart .product_shop .information p {
     font-family: "Titles";
     margin: 4px 0 5px;
     font-size: 18px;
     font-weight: 100;
     color: #333;
 }
-#header .shoping_cart .product_shop .information .pay_shop{
+
+#header .shoping_cart .product_shop .information .pay_shop {
     background-color: rgb(255, 230, 0);
     font-size: 15px;
     font-weight: 900;
     border: 2px solid #222;
     padding: 5px;
-    color:#333;
+    color: #333;
     border-radius: 50%;
 }
 
-#header .shoping_cart .product_shop .information .pay_shop:hover{
-    cursor:pointer;
+#header .shoping_cart .product_shop .information .pay_shop:hover {
+    cursor: pointer;
 }
-#header .shoping_cart .product_shop figure{
+
+#header .shoping_cart .product_shop figure {
     max-height: 90%;
     max-width: 120px;
     margin: 0;
     padding: 0;
 }
 
-#header .shoping_cart .product_shop figure img{
+#header .shoping_cart .product_shop figure img {
     width: 100%;
-    
+
     border-radius: 10%;
     height: 100%;
 }
 
-#header .shoping_cart .closeButton{
+#header .shoping_cart .closeButton {
     display: flex;
     justify-content: flex-start;
     position: absolute;
@@ -358,33 +405,33 @@
     top: 0px;
     left: 0px;
 }
-#header .shoping_cart .closeButton .icon{
+
+#header .shoping_cart .closeButton .icon {
     margin-right: 5px;
     font-size: 30px;
 }
-    
 
-@media(max-width:675px){
-    
-    #header{
 
-    }
-    
-    
-    
-    
-    #header .userControl .link{
+@media(max-width:675px) {
+
+    #header {}
+
+
+
+
+    #header .userControl .link {
         display: none;
     }
-    #header .userControls{
+
+    #header .userControls {
         display: none;
     }
-    
+
 }
 
 /*navegador*/
 
-.navbar{
+.navbar {
     box-sizing: border-box;
     padding: 5px;
     width: 100%;
@@ -393,7 +440,7 @@
 
 /*aside*/
 
-#product_details{
+#product_details {
     width: 25%;
     min-width: 200px;
     max-width: 600px;
@@ -407,17 +454,18 @@
     box-sizing: border-box;
     height: 100vh;
 }
-#product_details.close{
+
+#product_details.close {
     display: none;
 }
 
-#product_details figure{
+#product_details figure {
     width: 100%;
     margin: 0;
     padding: 0;
 }
 
-#product_details figure #closeAside{
+#product_details figure #closeAside {
     position: absolute;
     left: 10px;
     top: 10px;
@@ -427,16 +475,17 @@
     color: #333;
 }
 
-#product_details figure #closeAside:hover{
+#product_details figure #closeAside:hover {
     cursor: pointer;
 }
-#product_details figure img{
+
+#product_details figure img {
     width: 100%;
     border-bottom-left-radius: 10%;
     border-bottom-right-radius: 10%;
 }
 
-#product_details h6{
+#product_details h6 {
     margin: 20px 0 7px;
     margin-left: 10%;
     font-family: "secundary";
@@ -444,21 +493,24 @@
     color: var(--primary);
     align-self: flex-start;
 }
-#product_details .price{
+
+#product_details .price {
     font-size: 18px;
     align-self: flex-start;
     margin-left: 10%;
     color: #333;
     font-family: "Titles";
 }
-#product_details p{
+
+#product_details p {
     font-size: 16px;
     font-family: "paragraph";
     align-self: flex-start;
     margin-left: 10%;
     color: rgb(126, 126, 126);
 }
-#product_details #addShopping{
+
+#product_details #addShopping {
     width: 80%;
     user-select: none;
     max-width: 400px;
@@ -471,53 +523,86 @@
     background-color: #ff8bbc;
 }
 
-#product_details #addShopping:hover{
+#product_details #addShopping:hover {
     cursor: pointer;
 }
 
 /*other*/
-.arm{
+.arm {
     font-family: "cuts";
 }
 
 /*animations*/
 @keyframes glitch-screan {
-    48%{
+    48% {
         visibility: hidden;
     }
-    50%{visibility: visible;
+
+    50% {
+        visibility: visible;
     }
-    52%{
+
+    52% {
         visibility: hidden;
     }
 }
-@keyframes textMenuGlitch{
-    48%,52%{
-        color: var(--primary);
-        text-shadow: -1px 2px 8px var(--secundary),1px -2px 8px var(--glitch-5);
+
+@keyframes glitchSubtitelMenuAfter {
     
+    9%,11%{
+        transform: translateX(0px);
     }
-    50%{
-        color: var(--glitch-4);
-        text-shadow: -1px 2px 8px var(--glitch-1),1px -2px 8px var(--glitch-3);
+    10%{
+
+        transform: translateX(5px);
+    }
+    48%,
+    52% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
     }
 }
+
+@keyframes glitchSubtitelMenuBefore {
+
+    9%,11%{
+        transform: translateY(0px);
+    }
+    10%{
+
+        transform: translateY(5px);
+    }
+    48%,
+    52% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+}
+
 @keyframes openNavbar {
- 0%{
-    display: none;
-    transform:  translateX(-100%);
- }   
- 100%{
-    transform:  translateX(0);
- }   
+    0% {
+        display: none;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 @keyframes closeNavbar {
-    0%{
-        transform:  translateX(0);
+    0% {
+        transform: translateX(0);
     }
-    100%{
-       
-       transform:  translateX(-100%);
-    }   
-   }
+
+    100% {
+
+        transform: translateX(-100%);
+    }
+}

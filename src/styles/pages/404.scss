@@ -37,18 +37,13 @@
     top: 0;
     color: var(--glitch-3);
     width: 100%;
-    
     text-shadow: 2px 0 var(--glitch-2);
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 10vw;
-}
-
-.message::after{
     animation: glitchBotom 3s linear infinite,noise-2 13s linear infinite alternate-reverse;
-
 }
 
 .message::before{
