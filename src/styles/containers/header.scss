@@ -53,17 +53,45 @@
 }
 
 /*logo*/
-#header figure {
+#header .logo {
     margin-left: 50px;
-    max-width: 50px;
-    max-height: 80px;
+    height: 48px;
+    position: relative;
+    width: 30px;
 }
 
-#header figure :hover {
+#header .logo :hover {
     cursor: pointer;
 }
+#header .logo .logoPicture{
+    z-index: 1;
+}
+#header .logo .logoGlitch1{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    z-index: -1;
+    filter:hue-rotate(140deg);
+}
 
-#header figure img {
+#header .logo:hover .logoGlitch1{
+    
+    animation: shop-glitch-1 3s linear infinite alternate-reverse;
+}
+#header .logo .logoGlitch2{
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    z-index: -1;
+    
+    filter:hue-rotate(132deg) invert(1);
+}
+#header .logo:hover .logoGlitch2{
+    
+    animation: shop-glitch-2 3.2s linear infinite alternate-reverse;
+}
+
+#header .logo img {
     max-width: 100%;
     max-height: 100%;
 }
@@ -71,50 +99,131 @@
 /*navegador para desktop*/
 #header .navbar-desktop {
     display: flex;
-    justify-content: flex-start;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    min-width: 180px;
+    max-width: 600px;
 }
-
 
 #header .navbar-desktop .link {
-    padding: 3px 8px;
-    font-family: "holstein";
-    font-size: 18px;
+    
+    font-family: "Underdog";
+    font-size: 17px;
+    margin:3px 5px;
+    text-decoration: none;
     transition: color .2s ease;
-    color: #222;
-    text-shadow: .5px .5px 1px var(--glitch-4);
+    color: var(--glitch-5);
+    position: relative;
+    &:hover {
+        animation:hover-shop 3s linear infinite reverse;
+    }
+}
+#header .navbar-desktop .link::before,
+#header .navbar-desktop .link::after{
+    content:attr(title);
+    position: absolute;
+    z-index: -1;
 }
 
-#header .navbar-desktop .link:hover {
-    cursor: pointer;
-    background: linear-gradient(90deg, var(--glitch-1) 20%, var(--glitch-2) 40%, var(--glitch-3) 60%, var(--glitch-4) 80%, var(--glitch-5) 100%);
-    -webkit-background-clip: text;
-    color: transparent;
+#header .navbar-desktop .link::before{
+    top: 1px;
+    left: 1px;
+    color: var(--glitch-2);
+    
+}
+#header .navbar-desktop .link:hover::before{
+    animation: glitchSubtitelMenuBefore 3.1s linear infinite alternate-reverse;
+}
+
+#header .navbar-desktop .link::after{
+    top: -1px;
+    left: -1px;
+    color: var(--glitch-1);
+}
+#header .navbar-desktop .link:hover::after{
+    transform: scale(1.05);
+    animation: glitchSubtitelMenuAfter 3.1s linear infinite alternate-reverse;
+}
+@media (max-width:680px) {
+    
+    #header .navbar-desktop .link {
+        font-size: 14px;
+    }
 }
 
 /*control de usuario*/
 #header .userControl {
-    position: absolute;
-    bottom: -20px;
+    box-sizing: border-box;
     display: flex;
-    align-items: center;
-    right: 0;
-    align-self: flex-end;
+    align-items: flex-end;
+    font-family: 'BuggedBit';
+    position: absolute;
+    bottom: -23px;
+    z-index: 2;
+    border-radius: 3px;
+    font-size: 14px;
+    color: var(--glitch-2);
+    right: 3px;
 }
 
 /*boton para abrir shopping*/
-#header .userControl .shoppingcart {
-    padding: 3px 10px;
+#header .userControl .shoppingcart{
+    padding: 0px;
     font-weight: 900;
     transition: color .2s ease;
     font-size: 12px;
     color: rgb(167, 167, 167);
 }
 
+#header .userControl .shoppingcart .figureIcon{
+    width: 19px;
+    height: 19px;
+    position: relative;
+    margin-right: 10px;
+}
+
+#header .userControl .shoppingcart .figureIcon img {
+    max-width: 19px;
+    max-height: 19px;
+}
+#header .userControl .shoppingcart .figureIcon .oneIcon{
+    filter: hue-rotate(0deg);
+    z-index: 3;
+    
+    
+}
+#header .userControl .shoppingcart .figureIcon .oneIcon:hover{
+    cursor: pointer;
+    animation: hover-shop 1s linear infinite alternate;
+}
+
+#header .userControl .shoppingcart .figureIcon .twoIcon{
+    position: absolute;
+    top:-1.5px;
+    left: -1.5px;
+    z-index: -1;
+    filter: hue-rotate(353deg) invert(1);
+    animation: shop-glitch-1 3.2s linear infinite alternate-reverse;
+}
+
+#header .userControl .shoppingcart .figureIcon .threeIcon{
+    position: absolute;
+    top: 1.5px;
+    left: 1.5px;
+    z-index: -1;
+    filter: hue-rotate(102deg) invert(1);
+    animation: shop-glitch-2 3s linear infinite alternate-reverse;
+}
+
 #header .userControl .shoppingcart:hover,
 #header .userControl .shoppingcart.actived {
     color: var(--primary);
     cursor: pointer;
+    fill: var(--primary);
 }
+
 
 #header .userControl .link {
     padding: 3px 8px;
@@ -142,12 +251,13 @@
     left: 0%;
     top: 0%;
     z-index: 3;
+    margin: 0;
     padding: 65px 3px 20px;
     box-sizing: border-box;
     height: 100vh;
     overflow-y: auto;
     width: 100%;
-    max-width: 100%;
+    max-width: 100vw;
     background-color: var(--background-color);
     animation: openNavbar .3s linear;
 }
@@ -174,7 +284,6 @@
 
 #header .menuNavbar .glitchScream img {
     min-width: 100vw;
-    min-height: 100vh;
     box-sizing: border-box;
     padding: 0;
     margin: 0;
@@ -225,57 +334,57 @@
 }
 
 #header .menuNavbar .link {
-    width: 8%;
-    min-width: 100px;
-    max-width: 180px;
     border-radius: 5px;
     display: grid;
     place-items: center;
-    padding: 3px 0;
+    padding: 0;
     margin: 10px 5%;
     text-align: center;
     box-sizing: border-box;
-    font-family: "Alagard";
-    color: #333;
-    font-size: 23px;
+    font-family: "Underdog";
+    opacity: .6;
+    font-size: 25px;
+    text-decoration: none;
+    position: relative;
+    color: var(--glitch-5);
     transition: all .3s ease;
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+        animation:hover-shop 3s linear infinite reverse;
+    }
+}
+#header .menuNavbar .link::before,
+#header .menuNavbar .link::after{
+    content:attr(title);
+    position: absolute;
+    z-index: -1;
 }
 
-#header .menuNavbar .link:hover {
-    cursor: pointer;
-    background-color: white;
+#header .menuNavbar .link::before{
+    top: 1px;
+    left: 1px;
+    color: var(--glitch-2);
+    
+    text-shadow: -1px -1px 1px var(--glitch-3);
+    
+}
+#header .menuNavbar .link:hover::before{
+    animation: glitchSubtitelMenuBefore 3.1s linear infinite alternate-reverse;
 }
 
-#header .menuNavbar hr {
-
-    box-sizing: border-box;
-    width: 100%;
-    height: 3px;
-    background-color: #ff8bbc;
-    border: 1px solid #ff8bbc;
-    margin-bottom: 0px;
+#header .menuNavbar .link::after{
+    top: -1px;
+    left: -1px;
+    color: var(--glitch-1);
+}
+#header .menuNavbar .link:hover::after{
+    transform: scale(1.05);
+    animation: glitchSubtitelMenuAfter 3.1s linear infinite alternate-reverse;
 }
 
 /*menu usuario*/
-#header .userControl {
-    box-sizing: border-box;
-    display: flex;
-    align-items: flex-end;
-    background-color: white;
-    font-family: 'BuggedBit';
-    position: absolute;
-    bottom: -23px;
-    z-index: 2;
-    border-radius: 3px;
-    font-size: 14px;
-    color: var(--glitch-2);
-    right: 3px;
-}
 
-#header .userControls .link {
-    font-weight: 100;
-    margin: 2px 0;
-}
 
 #header .userControls .link:last-child {}
 
@@ -301,7 +410,7 @@
     flex-direction: column;
     right: 5px;
     border: var(--background-color) 3px solid;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(168, 82, 82);
     border-radius: 5px;
     max-height: 90vh;
     overflow-y: auto;
@@ -411,34 +520,6 @@
     font-size: 30px;
 }
 
-
-@media(max-width:675px) {
-
-    #header {}
-
-
-
-
-    #header .userControl .link {
-        display: none;
-    }
-
-    #header .userControls {
-        display: none;
-    }
-
-}
-
-/*navegador*/
-
-.navbar {
-    box-sizing: border-box;
-    padding: 5px;
-    width: 100%;
-    background-color: white;
-}
-
-/*aside*/
 
 #product_details {
     width: 25%;
@@ -604,5 +685,44 @@
     100% {
 
         transform: translateX(-100%);
+    }
+}
+
+@keyframes shop-glitch-1{
+    49%,51%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(-2px);
+    }
+    69%,71%{
+        transform: translateY(0px);
+    }
+    70%{
+        transform: translateY(2px);
+    }
+}
+@keyframes shop-glitch-2{
+    49%,51%{
+        transform: translateY(0px);
+    }
+    50%{
+        transform: translateY(-2px);
+    }
+    69%,71%{
+        transform: translateX(0);
+    }
+    70%{
+        transform: translateX(2px);
+    }
+}
+
+@keyframes hover-shop {
+    49%,51%{
+        transform: skew(0deg);
+    }
+    50%{
+
+        transform: skew(30deg);
     }
 }

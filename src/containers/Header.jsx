@@ -2,7 +2,12 @@ import "@styles/containers/header.scss";
 import { useState,useEffect } from "react";
 import UseHiddenOverflow from "../hook/windowHiddenOverflow";
 import { Link } from "react-router-dom";
-//import logo from '@images/logo.png'
+
+import  Logo from '@images/logo.png';
+import IconShopping from "@icons/shopping.png"
+
+const glitchGif = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjg3ZjM1YTlhNDM0MTU3NjAyMjFlOTVjY2E2OGVkYzZkZTI1NzViNSZjdD1n/IPFz7kGsj5tqU/giphy.gif";
+
 export default function Header({ children }){
 	const [navToggle,setNavToggle] = useState(false);
   const [userToggle,setMenuToggle] = useState(false);
@@ -51,54 +56,61 @@ export default function Header({ children }){
       </div>
 
       <a href="./index.html">
-        <figure>
+        <figure className="logo">
+         
           <Link to={"/"}>
-            <img src="./src/images/" />
+            <img className="logoPicture" src={Logo} />
           </Link>
+          
+          <img className="logoGlitch1" src={Logo} />
+          
+          <img className="logoGlitch2" src={Logo} />
         </figure>
       </a>
       <nav className="navbar-desktop">
         
-        <Link className="link" to="/blog">
+        <Link title="blog"  className="link" to="/blog">
           blog
         </Link>
-        <Link className="link" to="/news">
+        <Link title="news" className="link" to="/news">
           news
         </Link>
-        
-        <Link className="link" to="/products">
+        <Link title="products" className="link" to="/products">
           products
         </Link>
-        <Link className="link" to="/about">
+        <Link title="about" className="link" to="/about">
           about
         </Link>
       </nav>
       <div className="userControl">
-        <span className="material-symbols-outlined shoppingcart toggleShop">
-          shopping_cart
-        </span>
-        <a className="link" id="closeUser">email@user.com</a>
+        <div className="shoppingcart">
+          <figure className="figureIcon">
+            <img className="oneIcon" src={IconShopping} />
+            <img className="twoIcon" src={IconShopping} />
+            <img className="threeIcon" src={IconShopping} />
+          </figure>
+        </div>
       </div>
       <nav className={"menuNavbar " + (closeAni ? "closeAnimation" :(!navToggle ? "close": "")) }>
         <figure className="glitchScream">
-          <img src={"https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjg3ZjM1YTlhNDM0MTU3NjAyMjFlOTVjY2E2OGVkYzZkZTI1NzViNSZjdD1n/IPFz7kGsj5tqU/giphy.gif"} alt="COCODRILOOOOOOOOO" />
+          <img src={glitchGif} alt=" " />
         </figure>
         <h6 title="categories">categories</h6>
-        <a className="link" >All</a>
-        <a className="link" title="Foods">Foods</a>
-        <a className="link">Clothing</a>
-        <a className="link">Electronic</a>
-        <a className="link">Services</a>
-        <a className="link">Other</a>
+        <Link className="link" title="All">All</Link>
+        <Link className="link" title="Foods">Foods</Link>
+        <Link className="link" title="Clothing">Clothing</Link>
+        <Link className="link" title="Electronic">Electronic</Link>
+        <Link className="link" title="Services">Services</Link>
+        <Link className="link" title="Other">Other</Link>
         <h6 title="about">about</h6>
-        <a className="link">terms</a>
-        <a className="link">contact</a>
-        <a className="link">support</a>
-        <hr />
-        <h6 title="acount">acount</h6>
-        <a className="link">mi cuenta</a>
-        <a className="link">mis ordenes</a>
-        <a className="link">cerrar sesion</a>
+        <Link className="link" title="Terms">Terms</Link>
+        <Link className="link" title="Contact">Contact</Link>
+        <Link className="link" title="Support">Support</Link>
+
+        <h6 title="account">account</h6>
+        <Link className="link" title="Perfil">Perfil</Link>
+        <Link className="link" title="Ordenes">Ordenes</Link>
+        <Link className="link" title="Salir">Salir</Link>
       </nav>
       <aside className="userControls close">
         <a className="link">mi cuenta</a>

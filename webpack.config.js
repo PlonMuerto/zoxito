@@ -10,7 +10,7 @@ module.exports={
         path:path.resolve(__dirname,"dist"),
         filename:"bundle.js",
         publicPath:"/",
-        assetModuleFilename:"assets/images/[hash][ext][query]"
+        //assetModuleFilename:"assets/images/[hash][ext][query]"
     },
     resolve:{
         extensions:[".js",".jsx"],
@@ -19,8 +19,10 @@ module.exports={
             "@pages":path.resolve(__dirname,"src/pages"),
             "@containers":path.resolve(__dirname,"src/containers"),
             "@components":path.resolve(__dirname,"src/components"),
-            "@fonts":path.resolve(__dirname,"src/fonts"),
-            "@images":path.resolve(__dirname,"src/images"),
+            "@fonts":path.resolve(__dirname,"src/assets/fonts"),
+            "@images":path.resolve(__dirname,"src/assets/images"),
+            "@icons":path.resolve(__dirname,"src/assets/icons"),
+            "@logos":path.resolve(__dirname,"src/assets/logos"),
             "@routes":path.resolve(__dirname,"src/routes")
         }
     },
@@ -55,15 +57,13 @@ module.exports={
                   filename: 'static/fonts/[hash][ext][query]',  // Directorio de salida
                 },
             },{
-                test:/ \.(png|svg|jpg|jpeg)$/i,
-                type: 'asset/resource',
-                generator:{
-                    filename:"static/images/[hash][ext][query]"
-                }
+                test: /\.(gif|svg|jpg|png)$/,
+                loader: "file-loader",
             }
         ],
     },
     plugins:[
+
         new HtmlWebpackPlugin({
             template:"./public/index.html",
             filename:"./index.html"
@@ -78,6 +78,7 @@ module.exports={
         static:{
             directory:path.join(__dirname,"dist"),
         },
+        watchFiles:path.join(__dirname,"./**"),
         compress:true,
         port:3010,
         open:true

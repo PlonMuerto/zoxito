@@ -26,32 +26,26 @@
     src: url("@fonts/TAIGATRU.TTF");
     font-weight: bold;
 }
-/**/
-@font-face{
-    font-family: "Titles";
-    src: url("../fonts/ArigatouGozaimasu-1Gnqg.ttf")
-}
-@font-face{
-    font-family: "Titles2";
-    src: url("../fonts/ArigatouGozaimasu-Rp0LW.otf")
-}
-@font-face{
-    font-family: "secundary";
-    src:url("../fonts/CuteAurora-PK3lZ.ttf")
+@font-face {
+    font-family: "Underdog";
+    src: url("@fonts/Underdog.otf");
 }
 
-@font-face{
-    font-family: "paragraph";
-    src:url("../fonts/FuturaHandwritten.ttf")
+@font-face {
+    font-family: "Homicide";
+    src: url("@fonts/DoubleHomicide.ttf");
 }
+
+/**/
+
 @font-face{
     font-family: "cuts";
-    src:url("../fonts/cutpoint\ 3.1.ttf")
+    src:url("@fonts/cutpoint\ 3.1.ttf")
 }
 
 @font-face{
     font-family: "mounster";
-    src:url("../fonts/Monsterize.ttf")
+    src:url("@fonts/Monsterize.ttf")
 }
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -102,6 +96,7 @@ table {
     
     --primary:#fa4cce;
     --secundary:#F9A1E7;
+    --blood-clor:#7f052a;
 
     --glitch-1:#FCFF03;
     --glitch-2:#04FEFC;
