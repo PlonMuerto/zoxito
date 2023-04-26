@@ -30,10 +30,13 @@
     font-family: "Underdog";
     src: url("@fonts/Underdog.otf");
 }
-
 @font-face {
     font-family: "Homicide";
     src: url("@fonts/DoubleHomicide.ttf");
+}
+@font-face {
+    font-family: "Numbers";
+    src: url("@fonts/DISPLAYFREETFB.ttf");
 }
 
 /**/
@@ -91,7 +94,7 @@ table {
 	border-spacing: 0;
 }
 :root{
-    --back:#fcfcfc;
+    --back:#FFFEDF;
     --background-color:#010102;
     
     --primary:#fa4cce;

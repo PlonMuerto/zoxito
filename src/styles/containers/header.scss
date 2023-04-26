@@ -1,9 +1,9 @@
+@use "@styles/helpers/glitchStyles";
 /*header*/
 #header {
     width: 100%;
     height: 50px;
     display: flex;
-    //background-color: var(--primary);
     justify-content: space-between;
     align-items: start;
     position: relative;
@@ -54,8 +54,9 @@
 
 /*logo*/
 #header .logo {
+    margin-top: 3px;
     margin-left: 50px;
-    height: 48px;
+    height: 40px;
     position: relative;
     width: 30px;
 }
@@ -160,61 +161,36 @@
     align-items: flex-end;
     font-family: 'BuggedBit';
     position: absolute;
-    bottom: -23px;
+    bottom: -28px;
     z-index: 2;
     border-radius: 3px;
     font-size: 14px;
     color: var(--glitch-2);
     right: 3px;
+    --helper-width: 25px;
+	--helper-height: 25px;
 }
 
 /*boton para abrir shopping*/
 #header .userControl .shoppingcart{
-    padding: 0px;
-    font-weight: 900;
+    margin: 0 5px;
+    padding: 0;
     transition: color .2s ease;
-    font-size: 12px;
-    color: rgb(167, 167, 167);
-}
-
-#header .userControl .shoppingcart .figureIcon{
-    width: 19px;
-    height: 19px;
+    font-size: 8px;
     position: relative;
-    margin-right: 10px;
 }
 
-#header .userControl .shoppingcart .figureIcon img {
-    max-width: 19px;
-    max-height: 19px;
-}
-#header .userControl .shoppingcart .figureIcon .oneIcon{
-    filter: hue-rotate(0deg);
-    z-index: 3;
-    
-    
-}
-#header .userControl .shoppingcart .figureIcon .oneIcon:hover{
-    cursor: pointer;
-    animation: hover-shop 1s linear infinite alternate;
-}
-
-#header .userControl .shoppingcart .figureIcon .twoIcon{
+#header .userControl .shoppingcart .shoppingSize{
+    z-index: 2;
     position: absolute;
-    top:-1.5px;
-    left: -1.5px;
-    z-index: -1;
-    filter: hue-rotate(353deg) invert(1);
-    animation: shop-glitch-1 3.2s linear infinite alternate-reverse;
-}
-
-#header .userControl .shoppingcart .figureIcon .threeIcon{
-    position: absolute;
-    top: 1.5px;
-    left: 1.5px;
-    z-index: -1;
-    filter: hue-rotate(102deg) invert(1);
-    animation: shop-glitch-2 3s linear infinite alternate-reverse;
+    top: -1px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-family: "Numbers";
+    color:#333;
+    height: 100%;
+    left: 0;
 }
 
 #header .userControl .shoppingcart:hover,
@@ -385,8 +361,6 @@
 
 /*menu usuario*/
 
-
-#header .userControls .link:last-child {}
 
 #header .userControls .link:hover {
     cursor: pointer;
@@ -685,44 +659,5 @@
     100% {
 
         transform: translateX(-100%);
-    }
-}
-
-@keyframes shop-glitch-1{
-    49%,51%{
-        transform: translateX(0px);
-    }
-    50%{
-        transform: translateX(-2px);
-    }
-    69%,71%{
-        transform: translateY(0px);
-    }
-    70%{
-        transform: translateY(2px);
-    }
-}
-@keyframes shop-glitch-2{
-    49%,51%{
-        transform: translateY(0px);
-    }
-    50%{
-        transform: translateY(-2px);
-    }
-    69%,71%{
-        transform: translateX(0);
-    }
-    70%{
-        transform: translateX(2px);
-    }
-}
-
-@keyframes hover-shop {
-    49%,51%{
-        transform: skew(0deg);
-    }
-    50%{
-
-        transform: skew(30deg);
     }
 }

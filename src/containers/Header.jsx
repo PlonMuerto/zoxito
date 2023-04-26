@@ -1,17 +1,21 @@
 import "@styles/containers/header.scss";
-import { useState,useEffect } from "react";
+import { useState,useEffect, useContext } from "react";
 import UseHiddenOverflow from "../hook/windowHiddenOverflow";
 import { Link } from "react-router-dom";
 
 import  Logo from '@images/logo.png';
 import IconShopping from "@icons/shopping.png"
+import IconUser from "@icons/perfil.png"
+import AppContext from "../context/AppContext";
 
 const glitchGif = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjg3ZjM1YTlhNDM0MTU3NjAyMjFlOTVjY2E2OGVkYzZkZTI1NzViNSZjdD1n/IPFz7kGsj5tqU/giphy.gif";
 
 export default function Header({ children }){
+  const {state:{cart}} = useContext(AppContext);
+
 	const [navToggle,setNavToggle] = useState(false);
-  const [userToggle,setMenuToggle] = useState(false);
   const [shopToggle,setShopToggle] = useState(false);
+  const [userToggle,setMenuToggle] = useState(false);
   const [firstOpen,openComponent] = useState(true);
   const [closeAni,setCloseAni] = useState(false);
   
@@ -55,7 +59,6 @@ export default function Header({ children }){
         <div className="lineToggle" />
       </div>
 
-      <a href="./index.html">
         <figure className="logo">
          
           <Link to={"/"}>
@@ -66,7 +69,7 @@ export default function Header({ children }){
           
           <img className="logoGlitch2" src={Logo} />
         </figure>
-      </a>
+
       <nav className="navbar-desktop">
         
         <Link title="blog"  className="link" to="/blog">
@@ -84,12 +87,20 @@ export default function Header({ children }){
       </nav>
       <div className="userControl">
         <div className="shoppingcart">
-          <figure className="figureIcon">
+          <figure className="icon-glitch-helper">
             <img className="oneIcon" src={IconShopping} />
             <img className="twoIcon" src={IconShopping} />
             <img className="threeIcon" src={IconShopping} />
           </figure>
+          <span className="shoppingSize">
+            {cart.length}
+          </span>
         </div>
+        <figure className="icon-glitch-helper">
+          <img className="oneIcon" src={IconUser} />
+          <img className="twoIcon" src={IconUser} />
+          <img className="threeIcon" src={IconUser} />
+        </figure>
       </div>
       <nav className={"menuNavbar " + (closeAni ? "closeAnimation" :(!navToggle ? "close": "")) }>
         <figure className="glitchScream">
@@ -108,6 +119,7 @@ export default function Header({ children }){
         <Link className="link" title="Support">Support</Link>
 
         <h6 title="account">account</h6>
+        <Link className="link" title="Login" to="/login" exact>Login</Link>
         <Link className="link" title="Perfil">Perfil</Link>
         <Link className="link" title="Ordenes">Ordenes</Link>
         <Link className="link" title="Salir">Salir</Link>
