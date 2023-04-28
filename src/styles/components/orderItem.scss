@@ -1,0 +1,82 @@
+.OrderItem {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 1px 1px; 
+	grid-template-areas: 
+		"img title title"
+		"img price amount"; 
+	margin-bottom: 24px;
+    --helper-width: 15px;
+	--helper-height: 15px
+	align-items: center;
+	position: relative;
+}
+.OrderItem .itemImage {
+	margin: 0;
+	display: relative;
+	grid-area: img;
+}
+.OrderItem .itemImage img {
+	width: 70px;
+	height: 70px;
+	border-radius: 20px;
+	object-fit: cover;
+}
+@media (min-width:800px) {
+		
+	.OrderItem .itemImage img{
+		width: 100px;
+		height: 100px;	
+	}
+}
+.OrderItem .itemImage img
+
+.OrderItem .nameItemOrder{
+	grid-area: title;
+	font-size: 20px;
+	text-align: left;
+	color: var(--primary);
+	font-family: "SpotLight";
+	.titleItemOrder{
+		padding: 0;
+		margin: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+}
+
+.OrderItem .nameItemOrder::before,	
+.OrderItem .nameItemOrder::after{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.OrderItem .amountItemOrder {
+	padding: 0;
+	margin: 0;
+	grid-area: amount;
+	font-size: 11px;
+	
+}
+.OrderItem .priceItemOrder {
+	font-size: 12px;
+	grid-area: price;
+}
+.OrderItem .icon-close{
+	right: 3px;
+	bottom: 3px;
+	position: absolute;
+}
+.OrderItem .icon-more{
+	right: 20px;
+	bottom: 4px;
+	position: absolute;
+}
+.OrderItem .icon-less{
+	right: 37px;
+	bottom: 3px;
+	position: absolute;
+}

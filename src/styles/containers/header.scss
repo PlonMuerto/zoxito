@@ -1,0 +1,633 @@
+@use "@styles/helpers/glitchStyles";
+/*header*/
+#header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    position: fixed;
+    top: 0;
+    background-color: var(--back);
+    z-index: 3;
+    border-bottom: 1px solid #eee;
+}
+
+/*boton menu para celular*/
+#header .toggleMenu {
+    width: 40px;
+    align-self: flex-start;
+    height: 40px;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    box-sizing: border-box;
+    padding: 3px;
+    z-index: 4;
+    flex-direction: column;
+    justify-content: space-around;
+    display: flex;
+}
+
+
+#header .toggleMenu.actived .lineToggle:nth-child(1) {
+    background-image: linear-gradient(45deg, var(--glitch-2), var(--primary));
+}
+
+#header .toggleMenu.actived .lineToggle:nth-child(2) {
+    background-image: linear-gradient(45deg, var(--glitch-3), var(--primary))
+}
+
+#header .toggleMenu.actived .lineToggle:nth-child(3) {
+    background-image: linear-gradient(45deg, var(--glitch-1), var(--primary))
+}
+
+#header .toggleMenu:hover {
+    cursor: pointer;
+}
+
+#header .toggleMenu div {
+    box-sizing: border-box;
+    width: 100%;
+    transition: background .3s ease;
+    height: 17%;
+    border-radius: 1px;
+    background-color: var(--secundary);
+}
+
+/*logo*/
+#header .logo {
+    margin-top: 3px;
+    margin-left: 50px;
+    height: 40px;
+    position: relative;
+    width: 30px;
+}
+
+#header .logo :hover {
+    cursor: pointer;
+}
+#header .logo .logoPicture{
+    z-index: 1;
+}
+#header .logo .logoGlitch1{
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    z-index: -1;
+    filter:hue-rotate(140deg);
+}
+
+#header .logo:hover .logoGlitch1{
+    
+    animation: shop-glitch-1 3s linear infinite alternate-reverse;
+}
+#header .logo .logoGlitch2{
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    z-index: -1;
+    
+    filter:hue-rotate(132deg) invert(1);
+}
+#header .logo:hover .logoGlitch2{
+    
+    animation: shop-glitch-2 3.2s linear infinite alternate-reverse;
+}
+
+#header .logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+/*navegador para desktop*/
+#header .navbar-desktop {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    min-width: 180px;
+    max-width: 600px;
+}
+
+#header .navbar-desktop .link {
+    
+    font-family: "Underdog";
+    font-size: 17px;
+    margin:3px 5px;
+    text-decoration: none;
+    transition: color .2s ease;
+    color: var(--glitch-5);
+    position: relative;
+    &:hover {
+        animation:hover-shop 3s linear infinite reverse;
+    }
+}
+#header .navbar-desktop .link::before,
+#header .navbar-desktop .link::after{
+    content:attr(title);
+    position: absolute;
+    z-index: -1;
+}
+
+#header .navbar-desktop .link::before{
+    top: 1px;
+    left: 1px;
+    color: var(--glitch-2);
+    
+}
+#header .navbar-desktop .link:hover::before{
+    animation: glitchSubtitelMenuBefore 3.1s linear infinite alternate-reverse;
+}
+
+#header .navbar-desktop .link::after{
+    top: -1px;
+    left: -1px;
+    color: var(--glitch-1);
+}
+#header .navbar-desktop .link:hover::after{
+    transform: scale(1.05);
+    animation: glitchSubtitelMenuAfter 3.1s linear infinite alternate-reverse;
+}
+@media (max-width:680px) {
+    
+    #header .navbar-desktop .link {
+        font-size: 14px;
+    }
+}
+
+/*control de usuario*/
+#header .userControl {
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-end;
+    font-family: 'BuggedBit';
+    position: absolute;
+    bottom: -28px;
+    z-index: 2;
+    border-radius: 3px;
+    font-size: 14px;
+    color: var(--glitch-2);
+    right: 3px;
+    --helper-width: 25px;
+	--helper-height: 25px;
+}
+
+/*boton para abrir shopping*/
+#header .userControl .shoppingcart{
+    margin: 0 5px;
+    padding: 0;
+    transition: color .2s ease;
+    font-size: 8px;
+    position: relative;
+}
+
+#header .userControl .shoppingcart .shoppingSize{
+    z-index: 2;
+    position: absolute;
+    top: -1px;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    font-family: "Numbers";
+    color:#333;
+    height: 100%;
+    left: 0;
+}
+
+#header .userControl .shoppingcart:hover,
+#header .userControl .shoppingcart.actived {
+    color: var(--primary);
+    cursor: pointer;
+    fill: var(--primary);
+}
+
+
+#header .userControl .link {
+    padding: 3px 8px;
+    font-family: monospace;
+    font-weight: 900;
+    transition: color .2s ease;
+    font-size: var(--link-user-control);
+    color: rgb(167, 167, 167);
+}
+
+#header .userControl .link:hover,
+#header .userControl .link.actived {
+    cursor: pointer;
+    color: var(--primary);
+}
+
+/*menu celular*/
+#header .menuNavbar {
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    z-index: 3;
+    margin: 0;
+    padding: 65px 3px 20px;
+    box-sizing: border-box;
+    height: 100vh;
+    overflow-y: auto;
+    width: 100%;
+    max-width: 100vw;
+    background-color: var(--background-color);
+    animation: openNavbar .3s linear;
+}
+
+#header .menuNavbar.close {
+    display: none;
+}
+
+#header .menuNavbar.closeAnimation {
+    animation: closeNavbar .5s linear;
+}
+
+#header .menuNavbar .glitchScream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    z-index: -1;
+}
+
+#header .menuNavbar .glitchScream img {
+    max-width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    visibility: hidden;
+    animation: glitch-screan 10s linear infinite;
+}
+
+#header .menuNavbar h6 {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+    margin: 30px 0 40px;
+    position: relative;
+    padding-left: 5px;
+    font-family: "Alagard";
+    color: var(--back);
+    text-shadow: 0 1.5px var(--glitch-3);
+    //animation: textMenuGlitch 10s ease infinite alternate-reverse;
+    font-size: 40px;
+}
+
+#header .menuNavbar h6::before,
+#header .menuNavbar h6::after {
+    content: attr(title);
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#header .menuNavbar h6::before {
+    left: .5px;
+    top: -0.5px;
+    text-shadow: 1px 1px var(--glitch-2);
+    color: var(--glitch-1);
+    animation:glitchSubtitelMenuAfter 3s linear infinite alternate-reverse;
+}
+
+#header .menuNavbar h6::after {
+    left: -0.5px;
+    top: .5px;
+    animation: glitchSubtitelMenuBefore 2s linear infinite alternate-reverse;
+    text-shadow: 1px 1px var(--glitch-4);
+    color: var(--glitch-5);
+}
+
+#header .menuNavbar .link {
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    padding: 0;
+    margin: 20px;
+    text-align: center;
+    box-sizing: border-box;
+    font-family: "Underdog";
+    opacity: .6;
+    font-size: 25px;
+    text-decoration: none;
+    position: relative;
+    color: var(--glitch-5);
+    transition: all .3s ease;
+    &:hover {
+        opacity: 1;
+        cursor: pointer;
+        animation:hover-shop 3s linear infinite reverse;
+    }
+}
+#header .menuNavbar .link::before,
+#header .menuNavbar .link::after{
+    content:attr(title);
+    position: absolute;
+    z-index: -1;
+}
+
+#header .menuNavbar .link::before{
+    top: 1px;
+    left: 1px;
+    color: var(--glitch-2);
+    
+    text-shadow: -1px -1px 1px var(--glitch-3);
+    
+}
+#header .menuNavbar .link:hover::before{
+    animation: glitchSubtitelMenuBefore 3.1s linear infinite alternate-reverse;
+}
+
+#header .menuNavbar .link::after{
+    top: -1px;
+    left: -1px;
+    color: var(--glitch-1);
+}
+#header .menuNavbar .link:hover::after{
+    transform: scale(1.05);
+    animation: glitchSubtitelMenuAfter 3.1s linear infinite alternate-reverse;
+}
+
+/*menu usuario*/
+
+
+#header .userControls .link:hover {
+    cursor: pointer;
+    color: #222;
+}
+
+#header .userControls.close {
+    display: none;
+}
+
+/*menu de la comprar guardadas en el carrito*/
+#header .shopingCartCard {
+    width: 400px;
+    max-width: 100%;
+    position: absolute;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    top: 52px;
+    height: calc(100vh - 53px);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    right: 1px;
+    border: var(--primary) 2px solid;
+    background-color: var(--back);
+    z-index: 2;
+    box-sizing: border-box;
+    animation: animationOpenShops  .5s linear;
+    opacity: 1;
+    &.close {
+        display: none;
+        .shopingCartCard::before{
+            opacity: 0;
+        }
+        .shopingCartCard::after{
+            opacity: 0;
+        }
+    }
+    &.closeAnimationShop {
+        animation: animationCloseShops .5s linear ;
+    }
+}
+#header .shopingCartCard::before,
+#header .shopingCartCard::after{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    opacity: .8;
+}
+
+#header .shopingCartCard::before{
+    top: -1.5px;
+    left: -1.5px;
+    border: var(--glitch-2) 2px solid;
+    animation: animationOpenShops  1s cubic-bezier(0.1, 1, 0.355, 1.08),glitchSubtitelMenuBefore 1s 2s linear infinite alternate-reverse;
+}
+
+#header .shopingCartCard::after{
+    top: -2.5px;
+    left: -2.5px;
+    border: var(--glitch-1) 2px solid;
+    animation:animationOpenShops 1.5s cubic-bezier(0.1, 1, 0.355, 1.07) ,glitchSubtitelMenuAfter 1.5s 2s linear infinite alternate-reverse;
+}
+
+#header .shopingCartCard .closeButton {
+    display: flex;
+    justify-content: flex-start;
+    position: absolute;
+    align-items: center;
+    padding: 0;
+    transform: rotate(180deg);
+    box-sizing: border-box;
+    font-family: "secundary";
+    top: 10px;
+    left: 10px;
+}
+
+#product_details {
+    width: 25%;
+    min-width: 200px;
+    max-width: 600px;
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    right: 0;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+#product_details.close {
+    display: none;
+}
+
+#product_details figure {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#product_details figure #closeAside {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: rgba(255, 255, 255, 0.808);
+    border-radius: 50%;
+    padding: 4px;
+    color: #333;
+}
+
+#product_details figure #closeAside:hover {
+    cursor: pointer;
+}
+
+#product_details figure img {
+    width: 100%;
+    border-bottom-left-radius: 10%;
+    border-bottom-right-radius: 10%;
+}
+
+#product_details h6 {
+    margin: 20px 0 7px;
+    margin-left: 10%;
+    font-family: "secundary";
+    font-size: 20px;
+    color: var(--primary);
+    align-self: flex-start;
+}
+
+#product_details .price {
+    font-size: 18px;
+    align-self: flex-start;
+    margin-left: 10%;
+    color: #333;
+    font-family: "Titles";
+}
+
+#product_details p {
+    font-size: 16px;
+    font-family: "paragraph";
+    align-self: flex-start;
+    margin-left: 10%;
+    color: rgb(126, 126, 126);
+}
+
+#product_details #addShopping {
+    width: 80%;
+    user-select: none;
+    max-width: 400px;
+    border-radius: 5%;
+    padding: 3px 5px;
+    display: flex;
+    font-family: "secundary";
+    justify-content: center;
+    align-items: center;
+    background-color: #ff8bbc;
+}
+
+#product_details #addShopping:hover {
+    cursor: pointer;
+}
+
+/*other*/
+.arm {
+    font-family: "cuts";
+}
+
+/*animations*/
+@keyframes glitch-screan {
+    48% {
+        visibility: hidden;
+    }
+
+    50% {
+        visibility: visible;
+    }
+
+    52% {
+        visibility: hidden;
+    }
+}
+
+@keyframes glitchSubtitelMenuAfter {
+    
+    9%,11%{
+        transform: translateX(0px);
+    }
+    10%{
+
+        transform: translateX(5px);
+    }
+    48%,
+    52% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes glitchSubtitelMenuBefore {
+
+    9%,11%{
+        transform: translateY(0px);
+    }
+    10%{
+
+        transform: translateY(5px);
+    }
+    48%,
+    52% {
+        transform: translateX(0px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes openNavbar {
+    0% {
+        display: none;
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes closeNavbar {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes animationOpenShops {
+    0%{
+        transform: translateX(100%);
+        opacity: .1;
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}
+@keyframes animationCloseShops {
+    100%{
+        transform: translateX(100%);
+        opacity: .1;
+    }
+    0%{
+        opacity: 1;
+        transform: translateX(0%)
+    }
+}

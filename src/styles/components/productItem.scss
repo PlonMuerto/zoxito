@@ -1,0 +1,63 @@
+@use "@styles/helpers/glitchStyles";
+.ProductItem {
+	width: 240px;
+}
+.ProductItem .figureProduct{
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+.ProductItem .figureProduct img{
+	width: 240px;
+	height: 240px;
+	border-radius: 20px;
+	object-fit: cover;
+}
+
+.product-info {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 12px;
+}
+.product-info figure {
+	margin: 0;
+}
+
+.product-info figure img{
+	--helper-width: 30px;
+	--helper-height: 30px;
+	&:hover{
+		animation:glitch-image 3.5s linear infinite;
+		cursor: pointer;
+	}
+}
+.product-info div p:nth-child(1) {
+	font-weight: bold;
+	font-size: 20px;
+    margin: 2px 5px 4px;
+    font-family: "holstein";
+}
+.product-info div p:nth-child(2) {
+	font-size:24px;
+    width: auto;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+@media (max-width: 640px) {
+	.cards-container {
+		grid-template-columns: repeat(auto-fill, 140px);
+	}
+	.ProductItem {
+		width: 140px;
+	}
+	.ProductItem .figureProduct{
+		width: 140px;
+		height: 140px;
+	}
+	.ProductItem .figureProduct img {
+		width: 140px;
+		height: 140px;
+	}
+	
+}
