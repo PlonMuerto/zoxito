@@ -1,0 +1,100 @@
+@use "@styles/helpers/glitchStyles";
+
+.MyOrder {
+	width: 100%;
+	padding: 10px 8px 6px;
+	box-sizing: border-box;
+	right: 0;
+	top: 60px;
+	bottom: 0;
+	font-family: "DigitalPixel";
+    --helper-width: 25px;
+	--helper-height: 25px;
+}
+.title-container {
+	display: grid;
+	place-items: center;
+	margin-bottom: 10px;
+	width: 100%;
+}
+.title-container img {
+	transform: rotate(180deg);
+	margin-right: 14px;
+}
+.title {
+	font-size: 18px;
+	text-align: center;
+	font-family: "Alagard";
+	font-weight: bold;
+	
+}
+
+.my-order-content{
+    width: 100%;
+    height: calc(100vh - 260px);
+	margin: 0;
+	padding: 10px;
+	box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.my-order-content::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+
+.my-order-content::-webkit-scrollbar:vertical {
+    width: 6px;
+}
+
+
+.my-order-content::-webkit-scrollbar-thumb {
+    background-color: #ff8bbc;
+    border-radius: 20px;
+}
+
+
+.my-order-content::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+
+.order {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 16px;
+	font-size: 12px;
+	align-items: center;
+	margin-bottom: 24px;
+	border-radius: 8px;
+	padding:  14px 10px 6px;
+}
+
+.order p:nth-child(1) {
+	display: flex;
+	flex-direction: column;
+}
+.order p span:nth-child(1) {
+	font-size: var(--md);
+	font-weight: bold;
+}
+.order p:nth-child(2) {
+	text-align: end;
+	font-weight: bold;
+}
+
+.primary-button {
+	background-color: var(--hospital-green);
+	border-radius: 8px;
+	border: none;
+	color: var(--white);
+	width: 100%;
+	cursor: pointer;
+	font-size: var(--md);
+	font-weight: bold;
+	height: 50px;
+}
+@media (max-width: 640px) {
+	.MyOrder {
+		width: 100%;
+	}
+}

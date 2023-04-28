@@ -2,20 +2,30 @@
     font-family: "Alagard";
     src: url("@fonts/alagard.ttf");
 }
-@font-face{
-    font-family: "BuggedBit";
-    src: url("@fonts/BuggedBit.ttf")
-}
 @font-face {
     font-family: "Dion";
     src: url("@fonts/Dion.otf");
+}
+@font-face {
+    font-family: "DigitalPixel";
+    src: url("@fonts/dogicapixel.ttf");
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "DigitalPixel";
+    src: url("@fonts/dogicapixelbold.ttf");
+    font-weight: bold;
 }
 @font-face {
     font-family: "holstein";
     src: url("@fonts/holstein.ttf");
     font-weight: normal;
 }
-
+@font-face {
+    font-family: "SpotLight";
+    src: url("@fonts/Spotlight Typewriter NC.ttf");
+}
 @font-face {
     font-family: "holstein";
     src: url("@fonts/holsb___.ttf");
@@ -116,3 +126,4 @@ html,body{
     padding: 0;
 
 }
+

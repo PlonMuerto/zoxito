@@ -6,7 +6,9 @@ import { Link } from "react-router-dom";
 import  Logo from '@images/logo.png';
 import IconShopping from "@icons/shopping.png"
 import IconUser from "@icons/perfil.png"
+import IconExit from "@icons/exit.png"
 import AppContext from "../context/AppContext";
+import MyOrder from "./MyOrder";
 
 const glitchGif = "https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjg3ZjM1YTlhNDM0MTU3NjAyMjFlOTVjY2E2OGVkYzZkZTI1NzViNSZjdD1n/IPFz7kGsj5tqU/giphy.gif";
 
@@ -15,31 +17,120 @@ export default function Header({ children }){
 
 	const [navToggle,setNavToggle] = useState(false);
   const [shopToggle,setShopToggle] = useState(false);
-  const [userToggle,setMenuToggle] = useState(false);
+  const [userToggle,setUserToggle] = useState(false);
   const [firstOpen,openComponent] = useState(true);
-  const [closeAni,setCloseAni] = useState(false);
+  const [closeAnimationController,setAnimationController] = useState({
+    navbar:false,
+    shop:false,
+    user:false,
+  });
   
   useEffect(()=>{
     openComponent(false);
   },[])
+  
 
-  function closeAnimation(){
-    setCloseAni(false);
-    clearTimeout(closeAnimation);
+  function closeAnimationNav(){
+    setAnimationController(state=>{
+      return {
+        ...state,
+        navbar:false
+      }
+    })
+    clearTimeout(closeAnimationNav);
+  }
+  function closeAnimationShop(){
+    setAnimationController(state=>{
+      return {
+        ...state,
+        shop:false
+      }
+    })
+    clearTimeout(closeAnimationShop);
+  }
+  function closeAnimationUser(){
+    setAnimationController(state=>{
+      return {
+        ...state,
+        user:false
+      }
+    })
+    clearTimeout(closeAnimationUser);
   }
 
+
+  
+
   function toggleNav(){
+    if(userToggle){
+      toggleUser
+    }
     
+    if(shopToggle){
+      toggleShop()
+    }
+
     setNavToggle((e)=>{
       if(!firstOpen && e){
-        setCloseAni(true);
-        setTimeout(closeAnimation,300)
+        setAnimationController(state=>{
+          return {
+            ...state,
+            navbar:true
+          }
+        })
+
+        setTimeout(closeAnimationNav,500)
         return !e
       }else{
         return !e
       }
     });
     
+  }
+
+  function toggleShop(){
+    if(userToggle){
+      toggleUser
+    }
+
+    setShopToggle((e)=>{
+      if(!firstOpen && e){
+        setAnimationController(state=>{
+          return {
+            ...state,
+            shop:true
+          }
+        })
+
+        setTimeout(closeAnimationShop,500)
+        return !e
+      }else{
+        return !e
+      }
+    });
+  }
+
+  function toggleUser(){
+    
+    if(shopToggle){
+      toggleShop()
+    }
+
+    setUserToggle((e)=>{
+      if(!firstOpen && e){
+        setAnimationController(state=>{
+          return {
+            ...state,
+            user:true
+          }
+        })
+
+        setTimeout(closeAnimationUser,500)
+        return !e
+      }else{
+        return !e
+      }
+    });
   }
 
   return (
@@ -61,7 +152,7 @@ export default function Header({ children }){
 
         <figure className="logo">
          
-          <Link to={"/"}>
+          <Link exact to={"/"}>
             <img className="logoPicture" src={Logo} />
           </Link>
           
@@ -72,10 +163,10 @@ export default function Header({ children }){
 
       <nav className="navbar-desktop">
         
-        <Link title="blog"  className="link" to="/blog">
+        <Link exact title="blog"  className="link" to="/blog">
           blog
         </Link>
-        <Link title="news" className="link" to="/news">
+        <Link exact title="news" className="link" to="/news">
           news
         </Link>
         <Link title="products" className="link" to="/products">
@@ -86,14 +177,14 @@ export default function Header({ children }){
         </Link>
       </nav>
       <div className="userControl">
-        <div className="shoppingcart">
+        <div className="shoppingcart" onClick={toggleShop}>
           <figure className="icon-glitch-helper">
             <img className="oneIcon" src={IconShopping} />
             <img className="twoIcon" src={IconShopping} />
             <img className="threeIcon" src={IconShopping} />
           </figure>
           <span className="shoppingSize">
-            {cart.length}
+            {cart?.length ? cart.length : 0}
           </span>
         </div>
         <figure className="icon-glitch-helper">
@@ -101,8 +192,14 @@ export default function Header({ children }){
           <img className="twoIcon" src={IconUser} />
           <img className="threeIcon" src={IconUser} />
         </figure>
+        
+        <figure className="icon-glitch-helper">
+          <img className="oneIcon" src={IconExit} />
+          <img className="twoIcon" src={IconExit} />
+          <img className="threeIcon" src={IconExit} />
+        </figure>
       </div>
-      <nav className={"menuNavbar " + (closeAni ? "closeAnimation" :(!navToggle ? "close": "")) }>
+      <nav className={"menuNavbar " + (closeAnimationController.navbar ? "closeAnimation" :(!navToggle ? "close": "")) }>
         <figure className="glitchScream">
           <img src={glitchGif} alt=" " />
         </figure>
@@ -118,24 +215,14 @@ export default function Header({ children }){
         <Link className="link" title="Contact">Contact</Link>
         <Link className="link" title="Support">Support</Link>
 
-        <h6 title="account">account</h6>
-        <Link className="link" title="Login" to="/login" exact>Login</Link>
-        <Link className="link" title="Perfil">Perfil</Link>
-        <Link className="link" title="Ordenes">Ordenes</Link>
-        <Link className="link" title="Salir">Salir</Link>
       </nav>
       <aside className="userControls close">
         <a className="link">mi cuenta</a>
         <a className="link">mis ordenes</a>
         <a className="link">cerrar sesion</a>
       </aside>
-      <aside className="shoping_cart close">
-        <span className="closeButton">
-          <span className="material-symbols-outlined icon toggleShop">
-            storefront
-          </span>
-          mis ordenes
-        </span>
+      <aside className={"shopingCartCard "+(closeAnimationController.shop ? "closeAnimationShop" :(!shopToggle ? "close": ""))}>
+        <MyOrder close={toggleShop} />         
       </aside>
     </header>
 	);

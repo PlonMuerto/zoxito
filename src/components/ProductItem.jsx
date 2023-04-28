@@ -7,7 +7,6 @@ export default function ProductItem ({ product }){
 
 	const handleClick = (item) => {
 		addToCart(item)
-		console.log(state)
 	}
 
 	return (

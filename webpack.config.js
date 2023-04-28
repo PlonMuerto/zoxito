@@ -82,5 +82,6 @@ module.exports={
         compress:true,
         port:3010,
         open:true
-    }
+    },
+    devtool:"source-map"
 }
